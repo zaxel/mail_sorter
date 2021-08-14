@@ -10,8 +10,7 @@ $(()=>{
     function getCompanyDb(){
         $.ajax({
             url: "bd/db_card_get.php",
-            type: "POST",
-            data: {}, // Передаем данные для записи 
+            type: "GET",
             dataType: "json",
             success: function(result) {
                 if (result){ 
