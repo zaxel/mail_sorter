@@ -1,3 +1,4 @@
+const ErrorDuration = 3000;
 $(document).ready(function(){
     let text = document.querySelector('.insert-form__string');
     let startWarn = document.querySelector('.insert-form__warn');
@@ -494,20 +495,19 @@ newTags += `<div class="company__tag tag" data-tagId="${parseInt(lastTagId) + i}
         this.style.height = (this.scrollHeight) + "px";
         }
     }
-    //jump up button handler 
-    $(window).scroll(function(){
-        if ($(this).scrollTop() != 0)
-        $('#jumbBtn').fadeIn();
-        else
-        $('#jumbBtn').fadeOut();
+    //jump up button
+$(()=>{
+    $(window).scroll(()=>{
+        $(this).scrollTop() != 0 ? $('#jumpBtn').fadeIn() : $('#jumpBtn').fadeOut()
     });
-    $('#jumbBtn').click(function(){
+    $('#jumpBtn').click(()=>{
         $('body,html').animate({
             scrollTop: 0
         }, 800);
     });
+});
 
-const ErrorDuration = 3000;
+
 (function(){
     if(!Element.prototype.closest){
         Element.prototype.closest = function(css){
