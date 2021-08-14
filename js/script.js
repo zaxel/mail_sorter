@@ -591,25 +591,20 @@ function emailHandler(newForm){
     function bodyLock(){
         const lockPaddingVal = window.innerWidth - document.querySelector('.main').offsetWidth + 'px';
         if(lockPadding.length > 0){
-            for(let i=0; i < lockPadding.length; i++){
-                const el = lockPadding[i];
+            for(let el of lockPadding){
                 el.style.paddingRight = lockPaddingVal;
             }
-            
         }
         if(lockMargin.length > 0){
-            for(let i=0; i < lockMargin.length; i++){
-                const el = lockMargin[i];
+            for(let el of lockMargin){
                 el.style.marginRight = lockPaddingVal;
             }
-            
         }
         body.classList.add('lock');
         // body.style.paddingRight = lockPaddingVal; //to use comment bottom if section and next 2 lines
 
         if(elToAddPad.length > 0){
-            for(let i=0; i < elToAddPad.length; i++){
-                const el = elToAddPad[i];
+            for(let el of elToAddPad){
                 el.style.paddingRight = lockPaddingVal;
             }
             
@@ -625,14 +620,12 @@ function emailHandler(newForm){
     function bodyUnlock(){
         setTimeout(function(){
             if(lockPadding.length > 0){
-                for(let i=0; i < lockPadding.length; i++){
-                    const el = lockPadding[i];
+                for(let el of lockPadding){
                     el.style.paddingRight = '0px';
                 }
             }
             if(lockMargin.length > 0){
-                for(let i=0; i < lockMargin.length; i++){
-                    const el = lockMargin[i];
+                for(let el of lockMargin){
                     el.style.marginRight = '0px';
                 }
             }
@@ -640,11 +633,9 @@ function emailHandler(newForm){
             // body.style.paddingRight = '0px';  //to use comment bottom if section and next 2 lines
             
             if(elToAddPad.length > 0){
-                for(let i=0; i < elToAddPad.length; i++){
-                    const el = elToAddPad[i];
+                for(let el of elToAddPad){
                     el.style.paddingRight = '0px';
                 }
-                
             }
             header.style.paddingRight = '0px';
             footer.style.paddingRight = '0px';
@@ -664,9 +655,8 @@ function emailHandler(newForm){
         }
     });
 
-    if(forms.length === 0){
-        return;
-    }
+    //email handler
+    if(forms.length === 0) return;
 
     // name=value&name2=value2
     let serialize = function(form){
@@ -743,18 +733,18 @@ function emailHandler(newForm){
     //send email
     if(newForm){
             let submitButton = newForm.querySelector('.company__send-email');
-            submitButton.addEventListener('click', function(e){
+            submitButton.addEventListener('click', (e)=>{
                 e.preventDefault();
                 if(sendValidator(newForm))
                     formSend(newForm);
             })
     }else{
-        for(let i = 0; i < forms.length; i++){
-            let submitButton = forms[i].querySelector('.company__send-email');
-            submitButton.addEventListener('click', function(e){
+        for(let form of forms){
+            let submitButton = form.querySelector('.company__send-email');
+            submitButton.addEventListener('click', (e)=>{
                 e.preventDefault();
-                if(sendValidator(forms[i]))
-                    formSend(forms[i]);
+                if(sendValidator(form))
+                    formSend(form);
             })
         }
     }
