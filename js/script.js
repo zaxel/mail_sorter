@@ -225,7 +225,7 @@ newTags += `<div class="company__tag tag" data-tagId="${parseInt(tagId)}">
                 }
                 
             }
-        if(coincidences == 0){
+        if(coincidences === 0){
                 startWarn.innerHTML = "совпадений не обнаружено"
                 warnRemover(startWarn);
             }else if(coincidences > 0){
