@@ -449,7 +449,7 @@ newTags += `<div class="company__tag tag" data-tagId="${parseInt(lastTagId) + i}
     }
     //textareas handler (handling tabs and spaces)
     function tabChecker(e) {
-        if (e.key == 'Tab') {
+        if (e.key === 'Tab') {
         e.preventDefault();
         let start = this.selectionStart;
         let end = this.selectionEnd;
@@ -464,9 +464,9 @@ newTags += `<div class="company__tag tag" data-tagId="${parseInt(lastTagId) + i}
     function textAreasHandler() {
         const textareas = document.querySelectorAll('textarea');
         if(textareas.length === 0)return;
-        for(let i =0; i<textareas.length;i++){
-            textareas[i].removeEventListener("keydown", tabChecker)
-            textareas[i].addEventListener('keydown', tabChecker);
+        for(let textarea of textareas){
+            textarea.removeEventListener("keydown", tabChecker)
+            textarea.addEventListener('keydown', tabChecker);
         }
         
     }
