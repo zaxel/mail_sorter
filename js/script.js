@@ -404,8 +404,7 @@ newTags += `<div class="company__tag tag" data-tagId="${parseInt(lastTagId) + i}
         }else{
             const companies = document.querySelectorAll('.company');
             if(companies.length > 0){
-                for(let i = 0; i < companies.length; i++){
-                    const company = companies[i];
+                for(let company of companies){
                     addTagHandler(company);
                 }
             }
