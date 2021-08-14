@@ -666,19 +666,13 @@ function emailHandler(newForm){
         let formSubject = 'отправляю вам свежие предложения';
         let adminEmail = 'mail@example.com';
 
-        let emailTextKey = 1;
-        let companyEmailKey = 2;
-        let projectNameKey = 3;
-        let formSubjectKey = 4;
-        let adminEmailKey = 5;
-
         let str = '';
             if(companyEmail.length>0){
-                str += emailTextKey + '=' + emailText + '&' +
-                companyEmailKey + '=' + companyEmail + '&' +
-                projectNameKey + '=' + projectName + '&' +
-                formSubjectKey + '=' + formSubject + '&' +
-                adminEmailKey + '=' + adminEmail;
+                str += 'emailTextKey' + '=' + emailText + '&' +
+                'companyEmailKey' + '=' + companyEmail + '&' +
+                'projectNameKey' + '=' + projectName + '&' +
+                'formSubjectKey' + '=' + formSubject + '&' +
+                'adminEmailKey' + '=' + adminEmail;
 
             }
         return str;

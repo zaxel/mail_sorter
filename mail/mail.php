@@ -5,27 +5,21 @@ if ($method !== 'POST'){
     exit();
 }
 
-$project_name = '';
-$form_subject = '';
-$admin_email = '';
-$company_email = '';
-$message = '';
-
 $color_counter = 1;
 
 foreach ($_POST as $key => $value){
     if($value === ''){
         continue;
     }
-    if($key === 1) {
+    if($key === 'emailTextKey') {
         $message = $value;
-    }elseif($key === 2) {
+    }elseif($key === 'companyEmailKey') {
         $company_email = $value;
-    }elseif($key === 3) {
+    }elseif($key === 'projectNameKey') {
         $project_name = $value;
-    }elseif($key === 4) {
+    }elseif($key === 'formSubjectKey') {
         $form_subject = $value;
-    }elseif($key === 5) {
+    }elseif($key === 'adminEmailKey') {
         $admin_email = $value;
     }
 }
@@ -33,15 +27,6 @@ foreach ($_POST as $key => $value){
 function adopt($text){
     return '=?utf-8?B?'.base64_encode($text).'?=';
 }
-//handle br properly
-// $message = nl2br($message);
-// $message = "<table style='width: 100%;'>$message</table>";
-//handle bs properly
-// $message = str_replace("\s", "&nbsp;", $message);
-//handle br properly
-// $message = str_replace("\n", "<br/>", $message);
-//handle tabs properly
-// $message = str_replace("\t", "&nbsp;&nbsp;&nbsp;&nbsp;", $message);
 
 $message = "<div style='white-space: pre-wrap; font-size: 15px; font-family: Georgia; line-height: 1.4;'>$message</div>";
 
