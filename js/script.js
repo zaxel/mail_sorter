@@ -383,10 +383,8 @@ newTags += `<div class="company__tag tag" data-tagId="${parseInt(lastTagId) + i}
     function tagRemove() {
         const tags = document.querySelectorAll('.tag');
         if(tags.length > 0){
-            for(let i = 0; i < tags.length; i++){
-                const tag = tags[i];
+            for(let tag of tags){
                 const tagRemoveButton = tag.querySelector('.tag__button');
-
                 tagRemoveButton.addEventListener('click', function(e){
                     e.preventDefault();
                     removeTagDb(tag.dataset.tagid, tag);
