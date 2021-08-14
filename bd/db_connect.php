@@ -1,3 +1,3 @@
 <?php
-	$mysqli = new Mysqli('localhost', 'root', '', 'sn_mailer');
+	$mysqli = new Mysqli('localhost', 'root', 'wwww', 'sn_mailer');
  ?>
