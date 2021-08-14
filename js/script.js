@@ -537,31 +537,29 @@ function emailHandler(newForm){
     const elToAddPad = document.querySelectorAll('section');
     const lockPadding = document.querySelectorAll('.lock-padding');
     const lockMargin = document.querySelectorAll('.lock-margin');
-    let unlock = true;
-    const timeout = 800; //this parametr has to be the same as transforme in your css ex: transition: all .8s ease 0s;
-
+    const popupCloseIcons = document.querySelectorAll('.close-popup');
     
-
+    //popup handler
+    let unlock = true;
+    const timeout = 800; //this parameter has to be the same as transform in your css ex: transition: all .8s ease 0s;
     let forms = document.querySelectorAll('.company');
 
     if(popupLinks.length > 0){
-        for(let i = 0; i < popupLinks.length; i++){
-            const popupLink = popupLinks[i];
+        for(let popupLink of popupLinks){
             popupLink.addEventListener('click', function(e){
-                const popupName = popupLink.getAttribute('data-popup-id');
-                const curentPopup = document.getElementById(popupName);
-                popupOpen(curentPopup);
                 e.preventDefault();
+                const popupName = popupLink.getAttribute('data-popup-id');
+                const currentPopup = document.getElementById(popupName);
+                popupOpen(currentPopup);
             }); 
         }
     }
-    const popupCloseIcons = document.querySelectorAll('.close-popup');
     if(popupCloseIcons.length > 0){
         for(let i = 0; i < popupCloseIcons.length; i++){
             const popupCloseIcon = popupCloseIcons[i];
-            popupCloseIcon.addEventListener('click', function(e){
-                popupClose(popupCloseIcon.closest('.popup'));
+            popupCloseIcon.addEventListener('click', (e)=>{
                 e.preventDefault();
+                popupClose(popupCloseIcon.closest('.popup'));
             }); 
         }
     }
@@ -572,11 +570,11 @@ function emailHandler(newForm){
             
 
             currentPopup.classList.add('popup-active');
-            currentPopup.addEventListener('click', function(e){
+            currentPopup.addEventListener('click', (e)=>{
+                e.preventDefault();
                 if(!e.target.closest('.popup__content')){
                     popupClose(e.target.closest('.popup'));
                 }
-                e.preventDefault();
             })
         }
     }
