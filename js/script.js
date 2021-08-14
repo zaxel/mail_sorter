@@ -1,5 +1,5 @@
 const ErrorDuration = 3000;
-$(document).ready(function(){
+$(()=>{
     let text = document.querySelector('.insert-form__string');
     let startWarn = document.querySelector('.insert-form__warn');
     let addCompanyError = document.querySelector('.add-company__error');
@@ -508,7 +508,7 @@ $(()=>{
 });
 
 
-(function(){
+(()=>{
     if(!Element.prototype.closest){
         Element.prototype.closest = function(css){
             let node = this;
@@ -520,7 +520,7 @@ $(()=>{
         };
     }
 })();
-(function(){
+(()=>{
     if(!Element.prototype.matches){
         Element.prototype.matches = Element.prototype.matchesSelector || 
         Element.prototype.webkitMatchesSelector ||
