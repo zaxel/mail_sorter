@@ -356,13 +356,13 @@ newTags += `<div class="company__tag tag" data-tagId="${parseInt(lastTagId) + i}
         const middleContainer = document.querySelector('.parser__middle-section');
         const tagsWordsString = addCompanyForm.querySelector('.add-company__tags');
         
-        addCompanyButton.addEventListener('click', function(e){
+        addCompanyButton.addEventListener('click', (e)=>{
             e.preventDefault();
-            if(addCompanyName.value === ''){
+            if(!addCompanyName.value){
                 addCompanyError.innerHTML = "поле \"компания\" обязательно к заполнению!";
                 warnRemover(addCompanyError);
                 return;
-            }else if(addCompanyEmail.value === ''){
+            }else if(!addCompanyEmail.value){
                 addCompanyError.innerHTML = "поле \"Email компании\" обязательно к заполнению!";
                 warnRemover(addCompanyError);
                 return;
