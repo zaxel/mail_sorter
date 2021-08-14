@@ -475,13 +475,13 @@ newTags += `<div class="company__tag tag" data-tagId="${parseInt(lastTagId) + i}
     function texareaResizer(attr) {
         const textareas = document.querySelectorAll(".company__email-text, .insert-form__string");
         if(textareas.length === 0) return;
-        for(let i=0; i<textareas.length;i++){
-            textareas[i].setAttribute("style", "height:" + (textareas[i].scrollHeight) + "px;overflow-y:hidden;");
-            // textareas[i].style.height = "auto";
-            textareas[i].addEventListener("input", OnInput, false);
+        for(let textarea of textareas){
+            textarea.setAttribute("style", "height:" + (textarea.scrollHeight) + "px;overflow-y:hidden;");
+            // textarea.style.height = "auto";
+            textarea.addEventListener("input", OnInput, false);
             if(attr === 'doIt'){
-                textareas[i].style.height = "auto";
-                textareas[i].style.height = (textareas[i].scrollHeight) + "px";
+                textarea.style.height = "auto";
+                textarea.style.height = (textarea.scrollHeight) + "px";
             }
         }
     
