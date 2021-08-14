@@ -413,14 +413,14 @@ newTags += `<div class="company__tag tag" data-tagId="${parseInt(lastTagId) + i}
     }
     function addTagHandler(company){
         const tagWrightButton = company.querySelector('.company__add-button');
-        tagWrightButton.addEventListener('click', function(e){
+        tagWrightButton.addEventListener('click', (e)=>{
             e.preventDefault();
             const tagInputButton = company.querySelector('.company__add-button');
             tagInputButton.classList.remove('active');
             const tagInputCont = company.querySelector('.company__add-tag');
             tagInputCont.classList.add('active');
             const tagAddButton = tagInputCont.querySelector('.company__add-tag-button');
-            tagAddButton.addEventListener('click', function(e){
+            tagAddButton.addEventListener('click', (e)=>{
                 e.preventDefault();
                 tagInputButton.classList.add('active');
                 tagInputCont.classList.remove('active');
