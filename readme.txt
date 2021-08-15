@@ -14,5 +14,7 @@ once text send you will be able to see it in company card textarea. in the same 
 5. once you got your text sorted by companies you cat check once again if you happy with text. you can edit it if you need to. 
 6. once you ready press "send" button on the company and text will be send on company email.
 
+mail sorter light demo - https://zaxel.github.io/mail_sorter/
+
 (!!!be careful as all data in this version of mailsorter will be lost once webpage reloaded!!!)
 zaxel 21
