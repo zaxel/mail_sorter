@@ -18,13 +18,14 @@ $(()=>{
                             allCompaniesRender(result.companies, result.tags);
                         }else{
                             console.log('нет компаний в базе данных!');
+                            allCompaniesRender();
                         }
                 }else{
                     console.log(result.message);
                 }
 				return false;
             },
-            error: function() { console.log('ошибка получения компании из бд type2')}
+            error: function(){console.log('ошибка получения компании из бд type2')}
         });
 
     }
@@ -118,58 +119,61 @@ $(()=>{
         getCompanyDb();
     }
 
-    function allCompaniesRender(companies, tags){
+    function allCompaniesRender(companies , tags){
         const middleContainer = document.querySelector('.parser__middle-section');
-        for(let i = 0; i < companies.id.length; i++){
-            // console.log(result.companies.id[i] + ", ")
-            let companyName = companies.title[i];
-            let companyEmail = companies.email[i];
-            let companyId = companies.id[i];
-            //running through tags from db to find those who fits current company card id
-            if(tags !== ""){
-                for(let i =0; i < tags.id.length; i++){
-                    if(tags.userId[i] === companyId){
-                        companiesAddTag(tags.tag[i], tags.id[i]);
+        if(companies){
+            for(let i = 0; i < companies.id.length; i++){
+                // console.log(result.companies.id[i] + ", ")
+                let companyName = companies.title[i];
+                let companyEmail = companies.email[i];
+                let companyId = companies.id[i];
+                //running through tags from db to find those who fits current company card id
+                if(tags !== ""){
+                    for(let i =0; i < tags.id.length; i++){
+                        if(tags.userId[i] === companyId){
+                            companiesAddTag(tags.tag[i], tags.id[i]);
+                        }
                     }
                 }
-            }
-            let companyCard = document.createElement('form');
-        companyCard.classList.add('parser__company','company');
-        companyCard.id = companyId;
-        let element = `
-            <div class="company__top">
-                <div class="company__data">
-                    <div class="company__name">${companyName}</div>
-                    <div class="company__email">${companyEmail}</div>
-
-                </div>
-                <div class="company__text-container">
-                    <textarea class="company__email-text"></textarea>
-                    <div class="company__card-error error"></div>
-                </div>
-                <div class="company__buttons">
-                    <button class="company__remove">удалить</button>
-                    <button class="company__send-email" type="submit">отправить eMail</button>
-                </div>
-            </div>
-            <div class="company__bottom">
-                <div class="company__bot-left">${newTags}
-                </div>
-                <div class="company__bot-right">
-                    <button class="company__add-button active">добавить тег</button>
-                    <div class="company__add-tag">
-                        <input type="text" class="company__add-input">
-                        <button class="company__add-tag-button">V</button>
+                let companyCard = document.createElement('form');
+            companyCard.classList.add('parser__company','company');
+            companyCard.id = companyId;
+            let element = `
+                <div class="company__top">
+                    <div class="company__data">
+                        <div class="company__name">${companyName}</div>
+                        <div class="company__email">${companyEmail}</div>
+    
+                    </div>
+                    <div class="company__text-container">
+                        <textarea class="company__email-text"></textarea>
+                        <div class="company__card-error error"></div>
+                    </div>
+                    <div class="company__buttons">
+                        <button class="company__remove">удалить</button>
+                        <button class="company__send-email" type="submit">отправить eMail</button>
                     </div>
                 </div>
-            </div>
-        `
-        companyCard.innerHTML = element;
-        middleContainer.appendChild(companyCard);
+                <div class="company__bottom">
+                    <div class="company__bot-left">${newTags}
+                    </div>
+                    <div class="company__bot-right">
+                        <button class="company__add-button active">добавить тег</button>
+                        <div class="company__add-tag">
+                            <input type="text" class="company__add-input">
+                            <button class="company__add-tag-button">V</button>
+                        </div>
+                    </div>
+                </div>
+            `
+            companyCard.innerHTML = element;
+            middleContainer.appendChild(companyCard);
+    
+                companyName.value = '';
+                companyEmail.value = '';
+                newTags = ``;
+            }
 
-            companyName.value = '';
-            companyEmail.value = '';
-            newTags = ``;
         }
         companyRemove();
         tagRemove();
@@ -413,14 +417,14 @@ newTags += `<div class="company__tag tag" data-tagId="${parseInt(lastTagId) + i}
     }
     function addTagHandler(company){
         const tagWrightButton = company.querySelector('.company__add-button');
-        tagWrightButton.addEventListener('click', (e)=>{
+        tagWrightButton.addEventListener('click', function(e){
             e.preventDefault();
             const tagInputButton = company.querySelector('.company__add-button');
             tagInputButton.classList.remove('active');
             const tagInputCont = company.querySelector('.company__add-tag');
             tagInputCont.classList.add('active');
             const tagAddButton = tagInputCont.querySelector('.company__add-tag-button');
-            tagAddButton.addEventListener('click', (e)=>{
+            tagAddButton.addEventListener('click', function(e){
                 e.preventDefault();
                 tagInputButton.classList.add('active');
                 tagInputCont.classList.remove('active');
