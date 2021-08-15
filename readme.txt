@@ -2,7 +2,7 @@ mail sorter allows to sort email by tags and then send it to associated companie
 there is also light version of mailsorter on no_state_version branch. 
 
 ****************************************************
-how to use:    demo - https://youtu.be/pii2z44lezY
+how to use:         showcase - https://youtu.be/pii2z44lezY         demo - https://saelex.com/3556test/
 1. star by adding new company where you planning to send your emails by filling the create form at the bottom of the page.
     1.1 you must enter company name and valid company email in appropriate create company form field.
     1.2 you can also add your email text while adding new company (you will be able to edit it later anytime you like).
