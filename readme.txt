@@ -1,5 +1,8 @@
 mail sorter allows to sort email by tags and then send it to associated companies. this is lite version of mailsorter that has no ability to save it condition, so every time page reloaded all data will be lost.
 alternatively please consider to use full version of mailsorter on Main branch.  
+
+****************************************************
+how to use:
 1. star by adding new company where you planning to send your emails by filling the create form at the bottom of the page.
     1.1 you must enter company name and valid company email in appropriate create company form field.
     1.2 you can also add your email text while adding new company (you will be able to edit it later anytime you like).
@@ -13,6 +16,7 @@ if same text found in tags of different companies - text will send to every comp
 once text send you will be able to see it in company card textarea. in the same time it will be deleted from search textarea at the top of the page.  
 5. once you got your text sorted by companies you cat check once again if you happy with text. you can edit it if you need to. 
 6. once you ready press "send" button on the company and text will be send on company email.
+****************************************************
 
 mail sorter light demo - https://zaxel.github.io/mail_sorter/
 
