@@ -1,4 +1,4 @@
-mail sorter allows to sort email by tags and then send it to associated companies. this version of mailsorter that has ability to save it condition, so every time page reloaded all data will remain.
+mail sorter allows to sort email by tags and then send it to associated companies. this version of mailsorter has ability to save it condition, so every time page reloaded all data will remain.
 there is also light version of mailsorter on no_state_version branch. 
 
 ****************************************************
